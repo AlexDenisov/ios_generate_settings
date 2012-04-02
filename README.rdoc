@@ -1,4 +1,3 @@
-=begin
 = iOS SettingsManager generator
 Simple gem which generate SettingsManager singleton
 
@@ -6,4 +5,73 @@ Simple gem which generate SettingsManager singleton
     gem install ios_generate_settings
 = Usage
     ios_generate_settings login:NSString password:NSString count:NSNumber
-=end
+
+When you restart script the new properties will be added
+
+
+= Generated sources
+
+    //  SettingsManager.h
+    #import <Foundation/Foundation.h>
+
+    //string_constants
+    static NSString *const kName = @"name";
+    static NSString *const kCount = @"count";
+
+    @interface SettingsManager : NSObject
+
+    //property_declaration
+    @property (nonatomic, retain, readwrite) NSString *name;
+    @property (nonatomic, retain, readwrite) NSNumber *count;
+
+    + (id)sharedInstance;
+    - (void)saveValue:(id)aValue forKey:(NSString*)aKey;
+    @end
+
+    // SettingsManager.m
+
+    @implementation SettingsManager
+
+    //property_implementation
+    @synthesize name;
+    @synthesize count;
+
+
+    static SettingsManager *settingsManagerInstance = nil;
+
+    - (id)init
+    {
+        self = [super init];
+        if (self) {
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            //load_properties
+            self.name = [defaults valueForKey:kName];
+            self.count = [defaults valueForKey:kCount];
+
+        }
+        return self;
+    }
+
+    - (void)dealloc {
+        //release_properties
+        self.name = nil;
+        self.count = nil;
+
+        [super dealloc];
+    }
+
+    - (void)saveValue:(id)aValue forKey:(NSString *)aKey {
+        [[NSUserDefaults standardUserDefaults] setValue:aValue forKey:aKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self setValue:aValue forKey:aKey];
+    }
+
+    + (id)sharedInstance {
+        if(nil == settingsManagerInstance){
+            settingsManagerInstance = [[SettingsManager alloc] init];
+        }
+        return settingsManagerInstance;
+    }
+
+    @end
+
