@@ -13,4 +13,5 @@ Gem::Specification.new do |s|
                      "lib/ios_generate_settings/ObjCProperty.rb",
                      "lib/ios_generate_settings/templates/SettingsManager.h.template",
                      "lib/ios_generate_settings/templates/SettingsManager.m.template"]
+    s.homepage    = "https://github.com/AlexDenisov/ios_generate_settings"
 end
