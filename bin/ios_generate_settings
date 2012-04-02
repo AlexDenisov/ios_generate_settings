@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'ios_generate_settings'
+ios_settings = IOSGenerateSettings.new ARGV
+if ios_settings
+  ios_settings.generate
+end
