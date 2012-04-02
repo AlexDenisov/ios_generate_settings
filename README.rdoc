@@ -1,12 +1,12 @@
 = iOS SettingsManager generator
-== Simple gem which generate SettingsManager singleton
+=== Simple gem which generate SettingsManager singleton
 
 = Installation
     gem install ios_generate_settings
 = Usage
     ios_generate_settings login:NSString password:NSString count:NSNumber
 
-== When you restart script the new properties will be added
+=== When you restart script the new properties will be added
 
 
 = Generated sources
