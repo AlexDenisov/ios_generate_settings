@@ -30,7 +30,7 @@ class ObjCProperty
   end
   # NSUserDefaults *defaults = [NSUserDefaults stndardUserdefaults];
   def loading
-    "self.#{name} = [defaults valueForkey:k#{name.capitalize}];"
+    "self.#{name} = [defaults valueForKey:k#{name.capitalize}];"
   end
   def release
     if setter_semantic.to_s == "assign"
