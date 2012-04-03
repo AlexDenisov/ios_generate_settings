@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
     s.name        = 'ios_generate_settings'
-    s.version     = '0.0.1'
+    s.version     = '0.0.2'
     s.date        = '2012-04-02'
     s.executables << 'ios_generate_settings'
     s.summary     = "Create SettingsManager class"

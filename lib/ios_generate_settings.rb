@@ -36,7 +36,10 @@ class IOSGenerateSettings
   end
 
   def usage
-    puts "Invalid parameters"
+    puts "Usage:"
+    puts "\tios_generate_settings name:type"
+    puts "Example:"
+    puts "\tios_generate_settings name:NSString count:NSNumber"
     exit 1
   end
 end
